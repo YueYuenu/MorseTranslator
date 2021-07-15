@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
 namespace MorseTranslator
@@ -14,19 +14,19 @@ namespace MorseTranslator
             Console.WriteLine("Text to be translated here.");
             string input = Console.ReadLine();
             input = input.ToUpper();
-            
+
 
             for (int i = 0; i < input.Length; i++)
             {
                 if (i > 0)
-                    Console.Write('/');
+                    Console.Write('|');
 
                 char c = input[i];
                 if (Morse.ContainsKey(c))
-                    Console.Write(Morse);
+                    Console.Write(Morse[c]);
             }
 
-
+            Console.WriteLine();
             Console.WriteLine("Press ANY KEY to close this window.");
             Console.ReadLine();
         }
@@ -78,7 +78,7 @@ namespace MorseTranslator
 
         }
 
-        
+
 
 
     }
