@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 
 namespace MorseTranslator
@@ -19,7 +19,7 @@ namespace MorseTranslator
             for (int i = 0; i < input.Length; i++)
             {
                 if (i > 0)
-                    Console.Write('|');
+                    Console.Write('/');
 
                 char c = input[i];
                 if (Morse.ContainsKey(c))
@@ -27,8 +27,8 @@ namespace MorseTranslator
             }
 
             Console.WriteLine();
-            Console.WriteLine("Press ANY KEY to close this window.");
-            Console.ReadLine();
+            Console.WriteLine("Press ESC to close this window.");
+            while (Console.ReadKey().Key != ConsoleKey.Escape) { }
         }
 
         private static void InitialiseDictionary()
@@ -36,7 +36,10 @@ namespace MorseTranslator
             Morse = new Dictionary<char, string>()
             {
 
-                {' ', "/"},
+                {' ', " "},
+                {'.', ".-.-.-"},
+                {',', "--..--"},
+                {'?', "..--.."},
                 {'A', ".-"},
                 {'B', "-..."},
                 {'C', "-.-."},
@@ -77,9 +80,6 @@ namespace MorseTranslator
 
 
         }
-
-
-
 
     }
 }
