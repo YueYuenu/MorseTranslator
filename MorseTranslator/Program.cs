@@ -6,7 +6,7 @@ namespace MorseTranslator
     public class Program
     {
         private static Dictionary<char, string> Morse;
-
+        
         static void Main()
         {
             
@@ -75,8 +75,7 @@ namespace MorseTranslator
 
             Console.WriteLine("Text to be translated here.");
             string input = Console.ReadLine();
-            input = input.ToUpper();
-
+            
 
             for (int i = 0; i < input.Length; i++)
             {
@@ -85,7 +84,7 @@ namespace MorseTranslator
                     Console.Write('/');
                 }
 
-                char c = input[i];
+                string c = input[i];
                 if (MorseToTextD.ContainsKey(c))
                 {
                     Console.Write(MorseToTextD[c]);
@@ -97,7 +96,7 @@ namespace MorseTranslator
             while (Console.ReadKey().Key != ConsoleKey.Escape) { }
         }
 
-
+        
         private static void InitialiseMorseDictionary()
         {
             Morse = new Dictionary<char, string>()
@@ -145,6 +144,7 @@ namespace MorseTranslator
             };
         }
 
+        private static Dictionary<string, char> MorseToTextD;
         private static void InitialiseTextDictionary()
         {
 
