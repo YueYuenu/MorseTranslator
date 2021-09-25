@@ -73,22 +73,32 @@ namespace MorseTranslator
 
             InitialiseTextDictionary();
 
-            Console.WriteLine("Text to be translated here.");
+            Console.WriteLine("Text to be translated here. Please separate morse letters by /");
             string input = Console.ReadLine();
             
 
-            for (int i = 0; i < input.Length; i++)
+            //foreach (string i in input.Split(" "))
             {
-                if (i > 0)
+                string[] splitSp = input.Split();
+
+                for (int i = 0; i < splitSp.Length; i++)
                 {
-                    Console.Write('/');
+                    if (i != 0)
+                    
+                    
+                    Console.Write(' ');
+
+                    foreach (string j in splitSp[i].Split("/"))
+                    {
+                        if (MorseToTextD.ContainsKey(j))
+                        {
+                            Console.Write(MorseToTextD[j]);
+                        }
+                    }
                 }
 
-                string c = input[i];
-                if (MorseToTextD.ContainsKey(c))
-                {
-                    Console.Write(MorseToTextD[c]);
-                }
+                
+                 
             }
 
             Console.WriteLine();
